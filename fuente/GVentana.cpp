@@ -65,6 +65,8 @@ void GVentana::mostrar()
         }
 
         renderizador->limpiar();
+        for (auto elemento : elementos)
+            elemento->dibujar(renderizador);
         renderizador->renderizar();
     }
 

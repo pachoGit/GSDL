@@ -7,6 +7,8 @@
 #include "../GConfig.h"
 #include "../motor/GRenderizador.h"
 
+#include "GElemento.h"
+
 typedef enum EstiloFuente
 {
     GNORMAL    = TTF_STYLE_NORMAL,
@@ -19,7 +21,7 @@ typedef enum EstiloFuente
 
 // Cadena de caracteres para GSDL
 
-class GTexto
+class GTexto : public GElemento
 {
   private:
 
@@ -39,10 +41,10 @@ class GTexto
     SDL_Color color;
 
     // Textura del texto
-    SDL_Texture *texto_textura;
+    //SDL_Texture *texto_textura;
 
     // Espacio que ocupa el texto (textura)
-    SDL_Rect texto_espacio;
+    //SDL_Rect texto_espacio;
 
   public:
 

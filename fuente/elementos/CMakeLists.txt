@@ -5,7 +5,7 @@ project(elementos)
 # set(CMAKE_CXX_STANDARD 11)
 
 set(ELEMENTO_FUENTE GTexto.cpp)
-set(ELEMENTO_CABECERAS GTexto.h)
+set(ELEMENTO_CABECERAS GTexto.h GElemento.h)
 
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})

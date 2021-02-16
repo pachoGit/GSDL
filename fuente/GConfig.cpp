@@ -1,5 +1,7 @@
 #include "GConfig.h"
 
+SDL_Rect GConfig::espacio_defecto = {0, 0, 30, 30};
+
 /****** INFORMACION POR DEFECTO DEL MANEJO DE LA VENTANA PRINCIPAL ******/
 
 string GConfig::titulo_ventana = "Mi ventana";

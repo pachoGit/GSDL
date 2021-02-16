@@ -12,6 +12,9 @@ class GConfig
 {
   public:
 
+    // Espacio por defecto para una textura
+    static SDL_Rect espacio_defecto;
+
     /****** INFORMACION POR DEFECTO DEL MANEJO DE LA VENTANA PRINCIPAL ******/
     
     static string titulo_ventana;

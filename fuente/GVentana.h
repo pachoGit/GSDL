@@ -3,7 +3,9 @@
 
 #include <SDL2/SDL.h>
 #include <string>
+#include <vector>
 #include "motor/GRenderizador.h"
+#include "elementos/GElemento.h"
 
 typedef enum TipoVentana
 {
@@ -29,7 +31,7 @@ class GVentana
     GRenderizador *renderizador;
 
     // Lista de todas las texturas en esta ventana
-    std::vector<Elementos *> elementos;
+    std::vector<GElemento *> elementos;
 
   private:
     SDL_Window *crearVentana();
@@ -60,7 +62,7 @@ class GVentana
     void agregar(T *t)
     {
         if (t != nullptr)
-            t->dibujar(renderizador);
+            elementos.push_back(dynamic_cast<GElemento *> (t));
     }
 
 };
