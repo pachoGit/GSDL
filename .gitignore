@@ -1,4 +1,12 @@
+# Personalizado
+#
+# Respaldo de Emacs
 *~
+
+# Cmake
+CMakeCache.txt
+CMakeFiles/
+CMakeFiles/*
 
 # Prerequisites
 *.d

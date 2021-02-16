@@ -1,10 +1,11 @@
 #ifndef GTEXTO_H
 #define GTEXTO_H
 
-#include <SDL2/SDL_ttf>
+#include <SDL2/SDL_ttf.h>
 #include <string>
 #include <iostream>
-#include "../Gconfig.h"
+#include "../GConfig.h"
+#include "../motor/GRenderizador.h"
 
 typedef enum EstiloFuente
 {
@@ -34,6 +35,15 @@ class GTexto
     // Estilo de la fuente - Por defecto GNORMAL
     EstiloFuente estilo;
 
+    // Color de la fuente
+    SDL_Color color;
+
+    // Textura del texto
+    SDL_Texture *texto_textura;
+
+    // Espacio que ocupa el texto (textura)
+    SDL_Rect texto_espacio;
+
   public:
 
     // Inicia un nuevo objeto con por defecto con:
@@ -53,16 +63,24 @@ class GTexto
 
     ~GTexto();
     
-
-    // Retornos e Ingresos
+    //Ingresos y Retornos 
     void ingTexto(std::string cad);
     void ingFuente(std::string nf);
     void ingTam(unsigned t);
     void ingEstilo(int e);
+    void ingColor(SDL_Color c);
+    void ingPosicion(int x, int y);
             
-
     std::string retTexto() const;
+    TTF_Font *retFuente() const;
+    EstiloFuente retEstilo() const;
+    SDL_Color retColor() const;
+
     
+    // Dibuja el texto para luego ser presentado
+    void dibujar(GRenderizador *r);
+
+    //void dibujar(GVentana *v)
 };
 
 

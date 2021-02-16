@@ -1,0 +1,87 @@
+#include "GVentana.h"
+#include "GConfig.h"
+#include <iostream>
+#include <SDL2/SDL_ttf.h>
+
+GVentana::GVentana()
+{
+    titulo = GConfig::titulo_ventana;
+    alto = GConfig::alto_ventana;
+    ancho = GConfig::ancho_ventana;
+    SDL_Init(SDL_INIT_VIDEO);
+    TTF_Init();
+    gventana = crearVentana();
+    renderizador = new GRenderizador(gventana);
+}
+
+GVentana::GVentana(std::string t)
+{
+    titulo = t;
+    alto = GConfig::alto_ventana;
+    ancho = GConfig::ancho_ventana;
+    SDL_Init(SDL_INIT_VIDEO);
+    TTF_Init();
+    gventana = crearVentana();
+    renderizador = new GRenderizador(gventana);
+}
+
+GVentana::GVentana(std::string t, int al, int an)
+{
+    titulo = t;
+    alto = al;
+    ancho = an;
+    SDL_Init(SDL_INIT_VIDEO);
+    TTF_Init();
+    gventana = crearVentana();
+    renderizador = new GRenderizador(gventana);
+}
+
+GVentana::~GVentana()
+{
+    if (gventana != nullptr)
+    {
+        SDL_DestroyWindow(gventana);
+        gventana = nullptr;
+    }
+}
+
+// Esta funcion es la que ejecuta casi absolutamente todo, para el iniciado de SDL
+void GVentana::mostrar()
+{
+    /*
+    if (SDL_Init(SDL_INIT_VIDEO) != 0)
+        return;
+    */
+
+    SDL_Event evento;
+    bool salir = false;
+
+    while (!salir)
+    {
+        while (SDL_PollEvent(&evento))
+        {
+            if (evento.type == SDL_QUIT)
+                salir = true;
+        }
+
+        renderizador->limpiar();
+        renderizador->renderizar();
+    }
+
+    SDL_Quit();
+}
+
+SDL_Window *GVentana::crearVentana()
+{
+    return SDL_CreateWindow(titulo.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+                            alto, ancho, SDL_WINDOW_SHOWN);
+}
+
+/*
+template<typename T>
+void GVentana::agregar(T *t)
+{
+    if (t != nullptr)
+        t->dibujar(renderizador);
+}
+*/
