@@ -19,6 +19,9 @@ find_package(SDL2_ttf REQUIRED)
 set(LIBMOTOR motor)
 set(LIBELEMENTOS elementos)
 
+# Modo debuger
+#set(CMAKE_BUILD_TYPE Debug)
+
 add_executable(libgsdl ${GFUENTES} prueba.cpp)
 
 target_link_libraries(libgsdl ${SDL2_LIBRARIES} ${LIBMOTOR} ${LIBELEMENTOS} SDL2::TTF)

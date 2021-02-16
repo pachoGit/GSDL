@@ -1,5 +1,4 @@
 #include "GTexto.h"
-#include <iostream>
 
 GTexto::GTexto() : GElemento()
 {
@@ -26,10 +25,10 @@ GTexto::GTexto(std::string cad) : GElemento()
 GTexto::GTexto(std::string cad, unsigned t) : GElemento()
 {
     texto = cad;
-    fuente = TTF_OpenFont(GConfig::nombre_fuente.c_str(), GConfig::tam_fuente);
+    tam = t;
+    fuente = TTF_OpenFont(GConfig::nombre_fuente.c_str(), tam);
     if (!fuente)
         std::cout << "No se ha podido cargar la fuente de texto: " << GConfig::nombre_fuente << std::endl;
-    tam = t;
     /* Color por defecto - negro */
     color = GConfig::color_fuente;
 }
@@ -37,15 +36,16 @@ GTexto::GTexto(std::string cad, unsigned t) : GElemento()
 GTexto::GTexto(std::string cad, unsigned t, TTF_Font *f)
 {
     texto = cad;
+    tam = t;
     if (f != nullptr)
         fuente = f;
     else
     {
-        fuente = TTF_OpenFont(GConfig::nombre_fuente.c_str(), GConfig::tam_fuente);
+        fuente = TTF_OpenFont(GConfig::nombre_fuente.c_str(), tam);
         if (!fuente)
             std::cout << "No se ha podido cargar la fuente de texto: " << GConfig::nombre_fuente << std::endl;
     }
-    tam = t;
+
     /* Color por defecto - negro */
     color = GConfig::color_fuente;
 }
@@ -87,21 +87,10 @@ void GTexto::ingEstilo(int e)
     // Talvez mostrar un error que aun no se ha creado TTF_Font
 }
 
-void GTexto::ingColor(SDL_Color c)
+void GTexto::ingColor(GColor c)
 {
-    color.r = c.r;
-    color.g = c.g;
-    color.b = c.b;
-    color.a = c.a;
+    color = c;
 }
-
-/*
-void GTexto::ingPosicion(int x, int y)
-{
-    texto_espacio.x = x;
-    texto_espacio.y = y;
-}
-*/
 
 /* RETORNOS */
 
@@ -120,7 +109,7 @@ EstiloFuente GTexto::retEstilo() const
     return estilo;
 }
 
-SDL_Color GTexto::retColor() const
+GColor GTexto::retColor() const
 {
     return color;
 }
@@ -131,7 +120,9 @@ void GTexto::dibujar(GRenderizador *r)
         return;
     SDL_Surface *superficie = nullptr;
     SDL_Texture *tex = nullptr;
-    superficie = TTF_RenderText_Solid(fuente, texto.c_str(), color);
+    // Se necesita una mejor conversion aqui
+    SDL_Color c = {color.at(0), color.at(1), color.at(2), color.at(3)};
+    superficie = TTF_RenderText_Solid(fuente, texto.c_str(), c);
     if (superficie == nullptr)
         return;
     tex = SDL_CreateTextureFromSurface(r->retGrender(), superficie);

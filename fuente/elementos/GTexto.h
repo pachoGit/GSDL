@@ -4,6 +4,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <string>
 #include <iostream>
+#include "../Tipos.h"
 #include "../GConfig.h"
 #include "../motor/GRenderizador.h"
 
@@ -38,7 +39,7 @@ class GTexto : public GElemento
     EstiloFuente estilo;
 
     // Color de la fuente
-    SDL_Color color;
+    GColor color;
 
     // Textura del texto
     //SDL_Texture *texto_textura;
@@ -70,13 +71,13 @@ class GTexto : public GElemento
     void ingFuente(std::string nf);
     void ingTam(unsigned t);
     void ingEstilo(int e);
-    void ingColor(SDL_Color c);
-    void ingPosicion(int x, int y);
+    void ingColor(GColor c);
+    //void ingPosicion(int x, int y);
             
     std::string retTexto() const;
     TTF_Font *retFuente() const;
     EstiloFuente retEstilo() const;
-    SDL_Color retColor() const;
+    GColor retColor() const;
 
     
     // Dibuja el texto para luego ser presentado

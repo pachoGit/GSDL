@@ -8,8 +8,6 @@ GVentana::GVentana()
     titulo = GConfig::titulo_ventana;
     alto = GConfig::alto_ventana;
     ancho = GConfig::ancho_ventana;
-    SDL_Init(SDL_INIT_VIDEO);
-    TTF_Init();
     gventana = crearVentana();
     renderizador = new GRenderizador(gventana);
 }
@@ -19,8 +17,6 @@ GVentana::GVentana(std::string t)
     titulo = t;
     alto = GConfig::alto_ventana;
     ancho = GConfig::ancho_ventana;
-    SDL_Init(SDL_INIT_VIDEO);
-    TTF_Init();
     gventana = crearVentana();
     renderizador = new GRenderizador(gventana);
 }
@@ -30,8 +26,6 @@ GVentana::GVentana(std::string t, int al, int an)
     titulo = t;
     alto = al;
     ancho = an;
-    SDL_Init(SDL_INIT_VIDEO);
-    TTF_Init();
     gventana = crearVentana();
     renderizador = new GRenderizador(gventana);
 }
@@ -48,11 +42,6 @@ GVentana::~GVentana()
 // Esta funcion es la que ejecuta casi absolutamente todo, para el iniciado de SDL
 void GVentana::mostrar()
 {
-    /*
-    if (SDL_Init(SDL_INIT_VIDEO) != 0)
-        return;
-    */
-
     SDL_Event evento;
     bool salir = false;
 
@@ -70,7 +59,7 @@ void GVentana::mostrar()
         renderizador->renderizar();
     }
 
-    SDL_Quit();
+    //SDL_Quit();
 }
 
 SDL_Window *GVentana::crearVentana()

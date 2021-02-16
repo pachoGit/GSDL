@@ -13,9 +13,10 @@ int GConfig::ancho_ventana = 480;
 
 /****** INFORMACION POR DEFECTO DEL MANEJO DE FUENTE DE TEXTO ******/
 
-string GConfig::nombre_fuente = "prstartk.ttf";
+//string GConfig::nombre_fuente = "prstartk.ttf";
+string GConfig::nombre_fuente = "OpenSans-Regular.ttf";
 string GConfig::path_fuente = "recursos/fuentes/open-sans/";
 unsigned GConfig::tam_fuente = 10;
-SDL_Color GConfig::color_fuente = {0x00, 0x00, 0x00, 0x00};
+GColor GConfig::color_fuente = {0x00, 0x00, 0x00, 0x00};
 
 /******                 FIN DEL MANEJO DE TEXTO               ******/

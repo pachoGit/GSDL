@@ -1,9 +1,9 @@
 #ifndef GVENTANA_H
 #define GVENTANA_H
 
-#include <SDL2/SDL.h>
 #include <string>
 #include <vector>
+
 #include "motor/GRenderizador.h"
 #include "elementos/GElemento.h"
 

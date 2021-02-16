@@ -5,6 +5,7 @@
 
 #include <SDL2/SDL.h>
 #include <string>
+#include "Tipos.h"
 
 using namespace std;
 
@@ -39,7 +40,7 @@ class GConfig
     static unsigned tam_fuente;
 
     // Color por defecto del texto - Negro
-    static SDL_Color color_fuente;
+    static GColor color_fuente;
 
     /****** FIN DEL MANEJO DE TEXTO ******/
 
