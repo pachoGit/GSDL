@@ -41,12 +41,6 @@ class GTexto : public GElemento
     // Color de la fuente
     GColor color;
 
-    // Textura del texto
-    //SDL_Texture *texto_textura;
-
-    // Espacio que ocupa el texto (textura)
-    //SDL_Rect texto_espacio;
-
   public:
 
     // Inicia un nuevo objeto con por defecto con:
@@ -79,6 +73,8 @@ class GTexto : public GElemento
     EstiloFuente retEstilo() const;
     GColor retColor() const;
 
+
+    void controlarEvento(SDL_Event *e);
     
     // Dibuja el texto para luego ser presentado
     void dibujar(GRenderizador *r);

@@ -44,6 +44,14 @@ class GConfig
 
     /****** FIN DEL MANEJO DE TEXTO ******/
 
+    /* Informacion por defecto para los botones */
+    static string texto_boton;
+
+    // El color del boton cuando esta sin eventos
+    static GColor color_boton;
+
+    // El color del boton cuando el mouse esta encima
+    static GColor color_boton_mouse;
 };
 
 #endif /* GCONFIG_H */

@@ -4,6 +4,7 @@
 #include "Tipos.h"
 #include "GVentana.h"
 #include "elementos/GTexto.h"
+#include "elementos/GBoton.h"
 
 int iniciarGSDL()
 {

@@ -26,6 +26,15 @@ class GElemento
         espacio = GConfig::espacio_defecto;
     }
 
+    GElemento(SDL_Texture *t, SDL_Rect e)
+    {
+        textura = t;
+        espacio.x = e.x;
+        espacio.y = e.y;
+        espacio.w = e.w;
+        espacio.h = e.h;
+    }
+
     ~GElemento()
     {
         if (textura != nullptr)
@@ -88,12 +97,12 @@ class GElemento
 
     int retAlto() const
     {
-        return espacio.w;
+        return espacio.h;
     }
 
     int retAncho() const
     {
-        return espacio.h;
+        return espacio.w;
     }
 
     SDL_Texture *retTextura()
@@ -109,6 +118,9 @@ class GElemento
     // Mostrar el elemento en la ventana
     virtual void dibujar(GRenderizador *r) = 0;
     
+    // Controlador de eventos de los distintos elementos de GSDL
+    virtual void controlarEvento(SDL_Event *e) = 0;
+
     // Otra manera de dibujar el elemento
     //virtual void dibujarEn(GVentana *v) = 0;
 };

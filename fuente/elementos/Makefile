@@ -125,6 +125,33 @@ elementos/fast:
 	cd /home/pacho/C++/SDL/GSDL/fuente && $(MAKE) -f elementos/CMakeFiles/elementos.dir/build.make elementos/CMakeFiles/elementos.dir/build
 .PHONY : elementos/fast
 
+GBoton.o: GBoton.cpp.o
+
+.PHONY : GBoton.o
+
+# target to build an object file
+GBoton.cpp.o:
+	cd /home/pacho/C++/SDL/GSDL/fuente && $(MAKE) -f elementos/CMakeFiles/elementos.dir/build.make elementos/CMakeFiles/elementos.dir/GBoton.cpp.o
+.PHONY : GBoton.cpp.o
+
+GBoton.i: GBoton.cpp.i
+
+.PHONY : GBoton.i
+
+# target to preprocess a source file
+GBoton.cpp.i:
+	cd /home/pacho/C++/SDL/GSDL/fuente && $(MAKE) -f elementos/CMakeFiles/elementos.dir/build.make elementos/CMakeFiles/elementos.dir/GBoton.cpp.i
+.PHONY : GBoton.cpp.i
+
+GBoton.s: GBoton.cpp.s
+
+.PHONY : GBoton.s
+
+# target to generate assembly for a file
+GBoton.cpp.s:
+	cd /home/pacho/C++/SDL/GSDL/fuente && $(MAKE) -f elementos/CMakeFiles/elementos.dir/build.make elementos/CMakeFiles/elementos.dir/GBoton.cpp.s
+.PHONY : GBoton.cpp.s
+
 GTexto.o: GTexto.cpp.o
 
 .PHONY : GTexto.o
@@ -161,6 +188,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... elementos"
+	@echo "... GBoton.o"
+	@echo "... GBoton.i"
+	@echo "... GBoton.s"
 	@echo "... GTexto.o"
 	@echo "... GTexto.i"
 	@echo "... GTexto.s"

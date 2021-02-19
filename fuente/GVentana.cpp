@@ -51,6 +51,9 @@ void GVentana::mostrar()
         {
             if (evento.type == SDL_QUIT)
                 salir = true;
+            for (auto elemento : elementos)
+                elemento->controlarEvento(&evento);
+
         }
 
         renderizador->limpiar();

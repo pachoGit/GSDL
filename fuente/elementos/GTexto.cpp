@@ -76,6 +76,7 @@ void GTexto::ingFuente(std::string nf)
 void GTexto::ingTam(unsigned t)
 {
     tam = t;
+    fuente = TTF_OpenFont(GConfig::nombre_fuente.c_str(), tam);
 }
 
 void GTexto::ingEstilo(int e)
@@ -114,6 +115,12 @@ GColor GTexto::retColor() const
     return color;
 }
 
+// No hay evento que hacer
+void GTexto::controlarEvento(SDL_Event *e)
+{
+    
+}
+
 void GTexto::dibujar(GRenderizador *r)
 {
     if (fuente == nullptr)
@@ -132,6 +139,7 @@ void GTexto::dibujar(GRenderizador *r)
     if (retTextura() == nullptr)
         return;
     SDL_QueryTexture(retTextura(), nullptr, nullptr, &e.w, &e.h);
+    ingEspacio(e);
     SDL_RenderCopy(r->retGrender(), retTextura(), nullptr, &e);
 }
 

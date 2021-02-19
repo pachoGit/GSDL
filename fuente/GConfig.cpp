@@ -20,3 +20,9 @@ unsigned GConfig::tam_fuente = 10;
 GColor GConfig::color_fuente = {0x00, 0x00, 0x00, 0x00};
 
 /******                 FIN DEL MANEJO DE TEXTO               ******/
+
+/* Informacion por defecto para los botones */
+
+string GConfig::texto_boton = "Boton";
+GColor GConfig::color_boton = {0xE1, 0xEB, 0xEF, 0xFF};
+GColor GConfig::color_boton_mouse = {0x00, 0xEB, 0xFF, 0x64};
