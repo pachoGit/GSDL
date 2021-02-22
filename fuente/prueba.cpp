@@ -1,15 +1,15 @@
 #include <iostream>
 #include "GSDL.h"
 
-/*
-#include "GVentana.h"
-#include "elementos/GTexto.h"
-*/
-
 // Esta funcion se la va a pasar cuando encuentre el evento
-void mostrar()
+void saludar()
 {
-    std::cout << "Presione el click :D" << std::endl;
+    std::cout << "Hola Buenos dias :D" << std::endl;
+}
+
+void despedir()
+{
+    std::cout << "Adios!... muchas gracias :D" << std::endl;
 }
 
 int main()
@@ -20,20 +20,25 @@ int main()
     
     GVentana ventana("prueba");
     GBoton aceptar(new GTexto("Aceptar"));
-    GTexto texto2("Bueno comenzamos a experimentar", 30);
     GBoton cancelar(new GTexto("Cancelar"));
-
-    texto2.ingPosicion(100, 100);
-    texto2.ingColor({0x00, 0xFF, 0x121, 0x255});
-
+    
     aceptar.ingPosicion(100, 30);
     cancelar.ingPosicion(30, 30);
 
     ventana.agregar(&aceptar);
-    ventana.agregar(&texto2);
     ventana.agregar(&cancelar);
 
-    cancelar.agregarEvento("click", &mostrar);
+    cancelar.agregarEvento("click", &saludar);
+
+
+    GDesplegable submenu(new GBoton("Mi lista depegable"));
+    submenu.ingPosicion(10, 200);
+    submenu.agregar(new GBoton("Hola"));
+    submenu.agregar(new GBoton("Buenas"));
+    submenu.agregar(new GBoton("Vaya Menu"));
+
+
+    ventana.agregar(&submenu);
 
     ventana.mostrar();
 

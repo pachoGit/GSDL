@@ -152,6 +152,33 @@ GBoton.cpp.s:
 	cd /home/pacho/C++/SDL/GSDL/fuente && $(MAKE) -f elementos/CMakeFiles/elementos.dir/build.make elementos/CMakeFiles/elementos.dir/GBoton.cpp.s
 .PHONY : GBoton.cpp.s
 
+GDesplegable.o: GDesplegable.cpp.o
+
+.PHONY : GDesplegable.o
+
+# target to build an object file
+GDesplegable.cpp.o:
+	cd /home/pacho/C++/SDL/GSDL/fuente && $(MAKE) -f elementos/CMakeFiles/elementos.dir/build.make elementos/CMakeFiles/elementos.dir/GDesplegable.cpp.o
+.PHONY : GDesplegable.cpp.o
+
+GDesplegable.i: GDesplegable.cpp.i
+
+.PHONY : GDesplegable.i
+
+# target to preprocess a source file
+GDesplegable.cpp.i:
+	cd /home/pacho/C++/SDL/GSDL/fuente && $(MAKE) -f elementos/CMakeFiles/elementos.dir/build.make elementos/CMakeFiles/elementos.dir/GDesplegable.cpp.i
+.PHONY : GDesplegable.cpp.i
+
+GDesplegable.s: GDesplegable.cpp.s
+
+.PHONY : GDesplegable.s
+
+# target to generate assembly for a file
+GDesplegable.cpp.s:
+	cd /home/pacho/C++/SDL/GSDL/fuente && $(MAKE) -f elementos/CMakeFiles/elementos.dir/build.make elementos/CMakeFiles/elementos.dir/GDesplegable.cpp.s
+.PHONY : GDesplegable.cpp.s
+
 GTexto.o: GTexto.cpp.o
 
 .PHONY : GTexto.o
@@ -191,6 +218,9 @@ help:
 	@echo "... GBoton.o"
 	@echo "... GBoton.i"
 	@echo "... GBoton.s"
+	@echo "... GDesplegable.o"
+	@echo "... GDesplegable.i"
+	@echo "... GDesplegable.s"
 	@echo "... GTexto.o"
 	@echo "... GTexto.i"
 	@echo "... GTexto.s"

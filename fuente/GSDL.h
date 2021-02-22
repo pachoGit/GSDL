@@ -2,9 +2,11 @@
 #define GSDL_H
 
 #include "Tipos.h"
+#include "GConfig.h"
 #include "GVentana.h"
 #include "elementos/GTexto.h"
 #include "elementos/GBoton.h"
+#include "elementos/GDesplegable.h"
 
 int iniciarGSDL()
 {

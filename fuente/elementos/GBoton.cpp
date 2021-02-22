@@ -69,6 +69,11 @@ void GBoton::controlarEvento(SDL_Event *e)
     }
 }
 
+void GBoton::ingColor(GColor c)
+{
+    color = c;
+}
+
 void GBoton::agregarEvento(std::string tipo, FuncionEvento fe)
 {
     tipoEvento = tipo;

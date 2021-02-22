@@ -13,8 +13,14 @@ class GConfig
 {
   public:
 
+    /* TEXTURA POR DEFECTO  */
+    static SDL_Texture *textura_defecto;
+
     // Espacio por defecto para una textura
     static SDL_Rect espacio_defecto;
+
+    /* FIN TEXTURA */
+    
 
     /****** INFORMACION POR DEFECTO DEL MANEJO DE LA VENTANA PRINCIPAL ******/
     

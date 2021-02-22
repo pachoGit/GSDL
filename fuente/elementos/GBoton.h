@@ -41,14 +41,17 @@ class GBoton : public GElemento
 
     ~GBoton();
 
+    void ingColor(GColor c);
+
+    // Tarea definida por el usuario para realizar luego de que se genere
+    // el tipo de evento definido por el usuario
+    void agregarEvento(std::string tipo, FuncionEvento fe);
+
     // Dibuja el texto para luego ser presentado
     void dibujar(GRenderizador *r);
 
     void controlarEvento(SDL_Event *e);
     
-    // Tarea definida por el usuario para realizar luego de que se genere
-    // el tipo de evento definido por el usuario
-    void agregarEvento(std::string tipo, FuncionEvento fe);
 
   private:
 
