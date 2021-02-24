@@ -36,13 +36,14 @@ int main()
     submenu.agregar(new GBoton("Hola"));
     submenu.agregar(new GBoton("Buenas"));
     submenu.agregar(new GBoton("Vaya Menu"));
-
-
     ventana.agregar(&submenu);
 
-    ventana.mostrar();
 
-    cerrarGSDL();
+    GTexto tex("Hola buenos dias :D");
+    tex.ingColor(GCColor::deHexa("#0D729A"));
+    ventana.agregar(&tex);
+
+    ventana.mostrar();
 
     return 0;
 }

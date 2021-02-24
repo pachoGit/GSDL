@@ -5,9 +5,10 @@ project(libgsdl)
 
 add_subdirectory(motor)
 add_subdirectory(elementos)
+add_subdirectory(utilidades)
 
 set(GFUENTES GConfig.cpp GVentana.cpp)
-set(GCABECERAS GConfig.h GVentana.h GSDL.h)
+set(GCABECERAS GConfig.h GVentana.h Tipos.h GSDL.h)
 
 # Librerias
 find_package(SDL2 REQUIRED)
@@ -18,12 +19,13 @@ find_package(SDL2_ttf REQUIRED)
 
 set(LIBMOTOR motor)
 set(LIBELEMENTOS elementos)
+set(LIBUTILIDADES utilidades)
 
 # Modo debuger
 #set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(libgsdl ${GFUENTES} prueba.cpp)
 
-target_link_libraries(libgsdl ${SDL2_LIBRARIES} ${LIBMOTOR} ${LIBELEMENTOS} SDL2::TTF)
+target_link_libraries(libgsdl ${SDL2_LIBRARIES} ${LIBMOTOR} ${LIBELEMENTOS} ${LIBUTILIDADES} SDL2::TTF)
 
 

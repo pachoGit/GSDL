@@ -24,7 +24,6 @@ GRenderizador::~GRenderizador()
 // Hace lo mismo que el constructor de arriba
 void GRenderizador::iniciar(SDL_Window *ventana)
 {
-    // TODO: Creo que seria importante enviar un mensaje que el renderizador no se creo :D
     if (ventana == nullptr)
     {
         SDL_SetError("No se ha creado el SDL_Renderer");

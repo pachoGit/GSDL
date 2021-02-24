@@ -13,6 +13,15 @@ typedef enum TipoVentana
     GVENTANA_COMPLETA  = SDL_WINDOW_FULLSCREEN,
 } TipoVentana;
 
+// Estilo o disenio de la ventana
+// TODO: Que estilos de ventana tenemos?
+typedef enum EstiloVentana
+{
+    GESTILO_NINGUNO,
+    GESTILO_GRID,
+    GESTILO_BORDES
+} EstiloVentana;
+
 /* Simple implementacion del programa principal */
 
 class GVentana
@@ -33,6 +42,14 @@ class GVentana
     // Lista de todas las texturas en esta ventana
     std::vector<GElemento *> elementos;
 
+    // La ventana solo puede tener un solo estilo
+    EstiloVentana estilo;
+
+    // Banderas para el estado de la ventana
+    bool minimizado;
+
+    bool mouseEncima;
+
   private:
     SDL_Window *crearVentana();
 
@@ -45,6 +62,13 @@ class GVentana
     GVentana(std::string t, int al, int an);
 
     ~GVentana();
+
+    void ingTitulo(std::string t);
+
+    void ingAlto(int al);
+
+    void ingAncho(int an);
+
 
     /* Muestra la ventana y todo lo que contenga */
     void mostrar();

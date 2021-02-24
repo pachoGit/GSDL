@@ -4,6 +4,7 @@
 #include "Tipos.h"
 #include "GConfig.h"
 #include "GVentana.h"
+#include "utilidades/GCColor.h"
 #include "elementos/GTexto.h"
 #include "elementos/GBoton.h"
 #include "elementos/GDesplegable.h"

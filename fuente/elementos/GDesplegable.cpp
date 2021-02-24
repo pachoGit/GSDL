@@ -66,4 +66,7 @@ void GDesplegable::controlarEvento(SDL_Event *e)
     // Este codigo esta repetido dentro de GBoton
     if (e->type == SDL_MOUSEBUTTONDOWN)
         verLista = true;
+    if (lista.empty() == false)
+        for (auto b : lista)
+            b->controlarEvento(e);
 }

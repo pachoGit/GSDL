@@ -75,14 +75,14 @@ class GElemento
         espacio.y = y;
     }
 
-    void ingAlto(int alto)
-    {
-        espacio.w = alto;
-    }
-
     void ingAncho(int ancho)
     {
-        espacio.h = ancho;
+        espacio.w = ancho;
+    }
+
+    void ingAlto(int alto)
+    {
+        espacio.h = alto;
     }
 
     int retX() const

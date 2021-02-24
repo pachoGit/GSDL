@@ -149,6 +149,19 @@ elementos/fast:
 	$(MAKE) -f elementos/CMakeFiles/elementos.dir/build.make elementos/CMakeFiles/elementos.dir/build
 .PHONY : elementos/fast
 
+#=============================================================================
+# Target rules for targets named utilidades
+
+# Build rule for target.
+utilidades: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 utilidades
+.PHONY : utilidades
+
+# fast build rule for target.
+utilidades/fast:
+	$(MAKE) -f utilidades/CMakeFiles/utilidades.dir/build.make utilidades/CMakeFiles/utilidades.dir/build
+.PHONY : utilidades/fast
+
 GConfig.o: GConfig.cpp.o
 
 .PHONY : GConfig.o
@@ -241,6 +254,7 @@ help:
 	@echo "... libgsdl"
 	@echo "... motor"
 	@echo "... elementos"
+	@echo "... utilidades"
 	@echo "... GConfig.o"
 	@echo "... GConfig.i"
 	@echo "... GConfig.s"

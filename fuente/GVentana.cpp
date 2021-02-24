@@ -10,6 +10,7 @@ GVentana::GVentana()
     ancho = GConfig::ancho_ventana;
     gventana = crearVentana();
     renderizador = new GRenderizador(gventana);
+    estilo = GESTILO_NINGUNO;
 }
 
 GVentana::GVentana(std::string t)
@@ -19,6 +20,7 @@ GVentana::GVentana(std::string t)
     ancho = GConfig::ancho_ventana;
     gventana = crearVentana();
     renderizador = new GRenderizador(gventana);
+    estilo = GESTILO_NINGUNO;
 }
 
 GVentana::GVentana(std::string t, int al, int an)
@@ -28,6 +30,7 @@ GVentana::GVentana(std::string t, int al, int an)
     ancho = an;
     gventana = crearVentana();
     renderizador = new GRenderizador(gventana);
+    estilo = GESTILO_NINGUNO;
 }
 
 GVentana::~GVentana()
@@ -37,6 +40,21 @@ GVentana::~GVentana()
         SDL_DestroyWindow(gventana);
         gventana = nullptr;
     }
+}
+
+void GVentana::ingTitulo(std::string t)
+{
+    titulo = t;
+}
+
+void GVentana::ingAlto(int al)
+{
+    alto = al;
+}
+
+void GVentana::ingAncho(int an)
+{
+    ancho = an;
 }
 
 // Esta funcion es la que ejecuta casi absolutamente todo, para el iniciado de SDL
@@ -62,7 +80,7 @@ void GVentana::mostrar()
         renderizador->renderizar();
     }
 
-    //SDL_Quit();
+    SDL_Quit();
 }
 
 SDL_Window *GVentana::crearVentana()

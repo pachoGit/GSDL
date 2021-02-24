@@ -13,7 +13,7 @@ class GRenderizador
   public:
 
     GRenderizador();
-
+    
     GRenderizador(SDL_Window *ventana);
 
     ~GRenderizador();

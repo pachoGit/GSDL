@@ -14,7 +14,8 @@ class GConfig
   public:
 
     /* TEXTURA POR DEFECTO  */
-    static SDL_Texture *textura_defecto;
+
+    //static SDL_Texture *textura_defecto;
 
     // Espacio por defecto para una textura
     static SDL_Rect espacio_defecto;
