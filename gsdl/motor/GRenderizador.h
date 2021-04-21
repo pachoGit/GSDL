@@ -13,6 +13,7 @@ class GRenderizador
 
     /* Fuente de texto 1 */
     TTF_Font *gfuente1;
+    //std::vector<TTF_Font *> gfuentes;
 
   public:
 
@@ -36,6 +37,9 @@ class GRenderizador
 
     /* Mostrar */
     void renderizar();
+
+    // Crear un contexto de textura
+    SDL_Texture *crearTextura(int ancho, int alto);
 
 };
 

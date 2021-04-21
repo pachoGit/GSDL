@@ -7,14 +7,6 @@ class GEscuchadorMouse
 {
   public:
 
-    GEscuchadorMouse()
-    {
-    }
-
-    ~GEscuchadorMouse()
-    {
-    }
-
     // Click
     virtual void clickIzquierdo(GEventoMouse *e) = 0;
 

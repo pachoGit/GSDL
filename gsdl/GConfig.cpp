@@ -13,11 +13,20 @@ int GConfig::ancho_ventana = 480;
 
 /****** INFORMACION POR DEFECTO DEL MANEJO DE FUENTE DE TEXTO ******/
 
-//string GConfig::nombre_fuente = "prstartk.ttf";
-string GConfig::nombre_fuente = "OpenSans-Regular.ttf";
+//string GConfig::nombre_fuente = "OpenSans-Regular.ttf";
+//string GConfig::nombre_fuente = "OpenSans-Italic.ttf";
+string GConfig::nombre_fuente = "prstartk.ttf";
 string GConfig::path_fuente = "recursos/fuentes/open-sans/";
 unsigned GConfig::tam_fuente = 10;
 GColor GConfig::color_fuente = {0x00, 0x00, 0x00, 0x00};
+vector<string> GConfig::fuentes =
+        []
+        {
+            vector<string> f;
+            f.push_back("OpenSans-Regular.ttf");
+            return f;
+        }();
+
 
 /******                 FIN DEL MANEJO DE TEXTO               ******/
 

@@ -16,6 +16,7 @@
 class GElemento
 {
   private:
+
     // La textura del elemento
     SDL_Texture *textura;
 
@@ -28,15 +29,20 @@ class GElemento
     // Escuchador de eventos del teclado
     GEscuchadorTeclado *escuchadorTeclado;
 
-
   public:
 
+    /* Constructor principal */
     GElemento()
     {
         textura = nullptr;
         espacio = GConfig::espacio_defecto;
+        escuchadorMouse = nullptr;
+        escuchadorTeclado = nullptr;
     }
 
+    /* @param: t - Puntero de a un textura
+     * @param: e - Rectangulo ocupado por el elemento
+    */
     GElemento(SDL_Texture *t, SDL_Rect e)
     {
         textura = t;
@@ -44,12 +50,18 @@ class GElemento
         espacio.y = e.y;
         espacio.w = e.w;
         espacio.h = e.h;
+        escuchadorMouse = nullptr;
+        escuchadorTeclado = nullptr;
     }
 
     ~GElemento()
     {
         if (textura != nullptr)
             SDL_DestroyTexture(textura);
+        delete escuchadorMouse;
+        escuchadorMouse = nullptr;
+        delete escuchadorTeclado;
+        escuchadorTeclado = nullptr;
     }
 
     void ingTextura(SDL_Texture *t)
@@ -116,14 +128,24 @@ class GElemento
         return espacio.w;
     }
 
-    SDL_Texture *retTextura()
+    SDL_Texture *retTextura() const
     {
         return textura;
     }
 
-    SDL_Rect retEspacio()
+    SDL_Rect retEspacio() const
     {
         return espacio;
+    }
+
+    GEscuchadorMouse *retGEscuchadorMouse() const
+    {
+        return escuchadorMouse;
+    }
+
+    GEscuchadorTeclado *retGEscuchadorTeclado() const
+    {
+        return escuchadorTeclado;
     }
 
     // Esta funcion se utiliza para saber si el alguna cosa (cursor o objeto)
@@ -143,6 +165,9 @@ class GElemento
         return aca;
     }
 
+    // Crea la textura requerida para dibujar el elemento
+    virtual void construir(GRenderizador *r) = 0;
+
     // Mostrar el elemento en la ventana
     virtual void dibujar(GRenderizador *r) = 0;
     
@@ -152,9 +177,23 @@ class GElemento
     // Otra manera de dibujar el elemento
     //virtual void dibujarEn(GVentana *v) = 0;
 
-    virtual void agregarEventoMouse(GEscuchadorMouse *escuchador) = 0;
+    // Agregar un escuchador de mouse, para la implementacion seria algo asi
+    // class MiEscuchador1 : public GEsuchadorMouse, por esta razon esto es un
+    // template
+    template<typename T>
+    void agregarEscuchadorMouse(T *escuchador)
+    {
+        escuchadorMouse = dynamic_cast<GEscuchadorMouse *> (escuchador);
+    }
 
-    virtual void agregarEventoTeclado(GEscuchadorTeclado *escuchador) = 0;
+    // Agregar un escuchador de mouse, para la implementacion seria algo asi
+    // class MiEscuchador2 : public GEsuchadorTeclado, por esta razon esto es un
+    // template
+    template<typename T>
+    void agregarEscuchadorTeclado(T *escuchador)
+    {
+        escuchadorTeclado = dynamic_cast<GEscuchadorTeclado *> (escuchador);
+    }
 };
 
 #endif /* GELEMENTO_H */

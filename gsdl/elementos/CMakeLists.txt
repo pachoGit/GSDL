@@ -4,8 +4,22 @@ project(elementos)
 
 # set(CMAKE_CXX_STANDARD 11)
 
-set(ELEMENTO_FUENTE GTexto.cpp GBoton.cpp GDesplegable.cpp EntradaTexto.cpp GCampoTexto.cpp)
-set(ELEMENTO_CABECERAS GTexto.h GBoton.h GElemento.h GDesplegable.h EntradaTexto.h GCampoTexto.h)
+set(ELEMENTO_FUENTE
+  GTexto.cpp
+#  GBoton.cpp
+#  GDesplegable.cpp
+#  EntradaTexto.cpp
+#  GCampoTexto.cpp
+)
+
+set(ELEMENTO_CABECERAS
+  GElemento.h
+  GTexto.h
+#  GBoton.h
+#  GDesplegable.h
+#  EntradaTexto.h
+#  GCampoTexto.h
+)
 
 # Probaremos agregando los directorio de eventos
 include_directories("../utilidades/eventos")

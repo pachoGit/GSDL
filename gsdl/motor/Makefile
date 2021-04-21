@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pacho/C++/SDL/GSDL/codigo
+CMAKE_SOURCE_DIR = /home/pacho/C++/SDL/GSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pacho/C++/SDL/GSDL/codigo
+CMAKE_BINARY_DIR = /home/pacho/C++/SDL/GSDL
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(CMAKE_COMMAND) -E cmake_progress_start /home/pacho/C++/SDL/GSDL/codigo/CMakeFiles /home/pacho/C++/SDL/GSDL/codigo/motor/CMakeFiles/progress.marks
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f CMakeFiles/Makefile2 motor/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pacho/C++/SDL/GSDL/codigo/CMakeFiles 0
+	cd /home/pacho/C++/SDL/GSDL && $(CMAKE_COMMAND) -E cmake_progress_start /home/pacho/C++/SDL/GSDL/CMakeFiles /home/pacho/C++/SDL/GSDL/gsdl/motor/CMakeFiles/progress.marks
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f CMakeFiles/Makefile2 gsdl/motor/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pacho/C++/SDL/GSDL/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f CMakeFiles/Makefile2 motor/clean
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f CMakeFiles/Makefile2 gsdl/motor/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,32 +97,32 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f CMakeFiles/Makefile2 motor/preinstall
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f CMakeFiles/Makefile2 gsdl/motor/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f CMakeFiles/Makefile2 motor/preinstall
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f CMakeFiles/Makefile2 gsdl/motor/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pacho/C++/SDL/GSDL && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
-motor/CMakeFiles/motor.dir/rule:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f CMakeFiles/Makefile2 motor/CMakeFiles/motor.dir/rule
-.PHONY : motor/CMakeFiles/motor.dir/rule
+gsdl/motor/CMakeFiles/motor.dir/rule:
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f CMakeFiles/Makefile2 gsdl/motor/CMakeFiles/motor.dir/rule
+.PHONY : gsdl/motor/CMakeFiles/motor.dir/rule
 
 # Convenience name for target.
-motor: motor/CMakeFiles/motor.dir/rule
+motor: gsdl/motor/CMakeFiles/motor.dir/rule
 
 .PHONY : motor
 
 # fast build rule for target.
 motor/fast:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f motor/CMakeFiles/motor.dir/build.make motor/CMakeFiles/motor.dir/build
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/build
 .PHONY : motor/fast
 
 GMotor.o: GMotor.cpp.o
@@ -131,7 +131,7 @@ GMotor.o: GMotor.cpp.o
 
 # target to build an object file
 GMotor.cpp.o:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f motor/CMakeFiles/motor.dir/build.make motor/CMakeFiles/motor.dir/GMotor.cpp.o
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/GMotor.cpp.o
 .PHONY : GMotor.cpp.o
 
 GMotor.i: GMotor.cpp.i
@@ -140,7 +140,7 @@ GMotor.i: GMotor.cpp.i
 
 # target to preprocess a source file
 GMotor.cpp.i:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f motor/CMakeFiles/motor.dir/build.make motor/CMakeFiles/motor.dir/GMotor.cpp.i
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/GMotor.cpp.i
 .PHONY : GMotor.cpp.i
 
 GMotor.s: GMotor.cpp.s
@@ -149,7 +149,7 @@ GMotor.s: GMotor.cpp.s
 
 # target to generate assembly for a file
 GMotor.cpp.s:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f motor/CMakeFiles/motor.dir/build.make motor/CMakeFiles/motor.dir/GMotor.cpp.s
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/GMotor.cpp.s
 .PHONY : GMotor.cpp.s
 
 GRenderizador.o: GRenderizador.cpp.o
@@ -158,7 +158,7 @@ GRenderizador.o: GRenderizador.cpp.o
 
 # target to build an object file
 GRenderizador.cpp.o:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f motor/CMakeFiles/motor.dir/build.make motor/CMakeFiles/motor.dir/GRenderizador.cpp.o
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/GRenderizador.cpp.o
 .PHONY : GRenderizador.cpp.o
 
 GRenderizador.i: GRenderizador.cpp.i
@@ -167,7 +167,7 @@ GRenderizador.i: GRenderizador.cpp.i
 
 # target to preprocess a source file
 GRenderizador.cpp.i:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f motor/CMakeFiles/motor.dir/build.make motor/CMakeFiles/motor.dir/GRenderizador.cpp.i
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/GRenderizador.cpp.i
 .PHONY : GRenderizador.cpp.i
 
 GRenderizador.s: GRenderizador.cpp.s
@@ -176,7 +176,7 @@ GRenderizador.s: GRenderizador.cpp.s
 
 # target to generate assembly for a file
 GRenderizador.cpp.s:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(MAKE) -f motor/CMakeFiles/motor.dir/build.make motor/CMakeFiles/motor.dir/GRenderizador.cpp.s
+	cd /home/pacho/C++/SDL/GSDL && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/GRenderizador.cpp.s
 .PHONY : GRenderizador.cpp.s
 
 # Help Target
@@ -205,6 +205,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pacho/C++/SDL/GSDL/codigo && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pacho/C++/SDL/GSDL && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

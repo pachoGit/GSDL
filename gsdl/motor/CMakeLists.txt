@@ -6,12 +6,12 @@ project(motor)
 
 set(MOTOR_FUENTE
   GRenderizador.cpp
-  GMotor.cpp
+#  GMotor.cpp
   )
 
 set(MOTOR_CABECERAS
   GRenderizador.h
-  GMotor.h
+#  GMotor.h
   )
 
 find_package(SDL2 REQUIRED)

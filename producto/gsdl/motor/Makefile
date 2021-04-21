@@ -125,33 +125,6 @@ motor/fast:
 	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/build
 .PHONY : motor/fast
 
-GMotor.o: GMotor.cpp.o
-
-.PHONY : GMotor.o
-
-# target to build an object file
-GMotor.cpp.o:
-	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/GMotor.cpp.o
-.PHONY : GMotor.cpp.o
-
-GMotor.i: GMotor.cpp.i
-
-.PHONY : GMotor.i
-
-# target to preprocess a source file
-GMotor.cpp.i:
-	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/GMotor.cpp.i
-.PHONY : GMotor.cpp.i
-
-GMotor.s: GMotor.cpp.s
-
-.PHONY : GMotor.s
-
-# target to generate assembly for a file
-GMotor.cpp.s:
-	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/GMotor.cpp.s
-.PHONY : GMotor.cpp.s
-
 GRenderizador.o: GRenderizador.cpp.o
 
 .PHONY : GRenderizador.o
@@ -188,9 +161,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... motor"
-	@echo "... GMotor.o"
-	@echo "... GMotor.i"
-	@echo "... GMotor.s"
 	@echo "... GRenderizador.o"
 	@echo "... GRenderizador.i"
 	@echo "... GRenderizador.s"

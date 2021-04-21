@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.10)
 project(gsdl)
 
 add_subdirectory(motor)
-#add_subdirectory(elementos)
-#add_subdirectory(utilidades)
+add_subdirectory(elementos)
+add_subdirectory(utilidades)
 
 set(GFUENTES
   GConfig.cpp
@@ -27,8 +27,8 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/motor/extra-sdl)
 find_package(SDL2_ttf REQUIRED)
 
 set(LIBMOTOR motor)
-#set(LIBELEMENTOS elementos)
-#set(LIBUTILIDADES utilidades)
+set(LIBELEMENTOS elementos)
+set(LIBUTILIDADES utilidades)
 
 # Modo debuger
 #set(CMAKE_BUILD_TYPE Debug)
@@ -38,6 +38,6 @@ add_library(gsdl ${GFUENTES})
 target_link_libraries(gsdl
   ${SDL2_LIBRARIES}
   ${LIBMOTOR}
-  #${LIBELEMENTOS}
-  #${LIBUTILIDADES}
+  ${LIBELEMENTOS}
+  ${LIBUTILIDADES}
   SDL2::TTF)

@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pacho/C++/SDL/GSDL/producto/CMakeFiles /home/pacho/C++/SDL/GSDL/producto/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/pacho/C++/SDL/GSDL/producto && $(CMAKE_COMMAND) -E cmake_progress_start /home/pacho/C++/SDL/GSDL/producto/CMakeFiles /home/pacho/C++/SDL/GSDL/producto/gsdl/elementos/CMakeFiles/progress.marks
+	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f CMakeFiles/Makefile2 gsdl/elementos/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pacho/C++/SDL/GSDL/producto/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f CMakeFiles/Makefile2 gsdl/elementos/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,110 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f CMakeFiles/Makefile2 gsdl/elementos/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f CMakeFiles/Makefile2 gsdl/elementos/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pacho/C++/SDL/GSDL/producto && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named prueba
+# Convenience name for target.
+gsdl/elementos/CMakeFiles/elementos.dir/rule:
+	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f CMakeFiles/Makefile2 gsdl/elementos/CMakeFiles/elementos.dir/rule
+.PHONY : gsdl/elementos/CMakeFiles/elementos.dir/rule
 
-# Build rule for target.
-prueba: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 prueba
-.PHONY : prueba
+# Convenience name for target.
+elementos: gsdl/elementos/CMakeFiles/elementos.dir/rule
 
-# fast build rule for target.
-prueba/fast:
-	$(MAKE) -f CMakeFiles/prueba.dir/build.make CMakeFiles/prueba.dir/build
-.PHONY : prueba/fast
-
-#=============================================================================
-# Target rules for targets named gsdl
-
-# Build rule for target.
-gsdl: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gsdl
-.PHONY : gsdl
-
-# fast build rule for target.
-gsdl/fast:
-	$(MAKE) -f gsdl/CMakeFiles/gsdl.dir/build.make gsdl/CMakeFiles/gsdl.dir/build
-.PHONY : gsdl/fast
-
-#=============================================================================
-# Target rules for targets named motor
-
-# Build rule for target.
-motor: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 motor
-.PHONY : motor
-
-# fast build rule for target.
-motor/fast:
-	$(MAKE) -f gsdl/motor/CMakeFiles/motor.dir/build.make gsdl/motor/CMakeFiles/motor.dir/build
-.PHONY : motor/fast
-
-#=============================================================================
-# Target rules for targets named elementos
-
-# Build rule for target.
-elementos: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 elementos
 .PHONY : elementos
 
 # fast build rule for target.
 elementos/fast:
-	$(MAKE) -f gsdl/elementos/CMakeFiles/elementos.dir/build.make gsdl/elementos/CMakeFiles/elementos.dir/build
+	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f gsdl/elementos/CMakeFiles/elementos.dir/build.make gsdl/elementos/CMakeFiles/elementos.dir/build
 .PHONY : elementos/fast
 
-#=============================================================================
-# Target rules for targets named utilidades
+GTexto.o: GTexto.cpp.o
 
-# Build rule for target.
-utilidades: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 utilidades
-.PHONY : utilidades
-
-# fast build rule for target.
-utilidades/fast:
-	$(MAKE) -f gsdl/utilidades/CMakeFiles/utilidades.dir/build.make gsdl/utilidades/CMakeFiles/utilidades.dir/build
-.PHONY : utilidades/fast
-
-prueba.o: prueba.cpp.o
-
-.PHONY : prueba.o
+.PHONY : GTexto.o
 
 # target to build an object file
-prueba.cpp.o:
-	$(MAKE) -f CMakeFiles/prueba.dir/build.make CMakeFiles/prueba.dir/prueba.cpp.o
-.PHONY : prueba.cpp.o
+GTexto.cpp.o:
+	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f gsdl/elementos/CMakeFiles/elementos.dir/build.make gsdl/elementos/CMakeFiles/elementos.dir/GTexto.cpp.o
+.PHONY : GTexto.cpp.o
 
-prueba.i: prueba.cpp.i
+GTexto.i: GTexto.cpp.i
 
-.PHONY : prueba.i
+.PHONY : GTexto.i
 
 # target to preprocess a source file
-prueba.cpp.i:
-	$(MAKE) -f CMakeFiles/prueba.dir/build.make CMakeFiles/prueba.dir/prueba.cpp.i
-.PHONY : prueba.cpp.i
+GTexto.cpp.i:
+	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f gsdl/elementos/CMakeFiles/elementos.dir/build.make gsdl/elementos/CMakeFiles/elementos.dir/GTexto.cpp.i
+.PHONY : GTexto.cpp.i
 
-prueba.s: prueba.cpp.s
+GTexto.s: GTexto.cpp.s
 
-.PHONY : prueba.s
+.PHONY : GTexto.s
 
 # target to generate assembly for a file
-prueba.cpp.s:
-	$(MAKE) -f CMakeFiles/prueba.dir/build.make CMakeFiles/prueba.dir/prueba.cpp.s
-.PHONY : prueba.cpp.s
+GTexto.cpp.s:
+	cd /home/pacho/C++/SDL/GSDL/producto && $(MAKE) -f gsdl/elementos/CMakeFiles/elementos.dir/build.make gsdl/elementos/CMakeFiles/elementos.dir/GTexto.cpp.s
+.PHONY : GTexto.cpp.s
 
 # Help Target
 help:
@@ -210,14 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... prueba"
-	@echo "... gsdl"
-	@echo "... motor"
 	@echo "... elementos"
-	@echo "... utilidades"
-	@echo "... prueba.o"
-	@echo "... prueba.i"
-	@echo "... prueba.s"
+	@echo "... GTexto.o"
+	@echo "... GTexto.i"
+	@echo "... GTexto.s"
 .PHONY : help
 
 
@@ -229,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pacho/C++/SDL/GSDL/producto && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

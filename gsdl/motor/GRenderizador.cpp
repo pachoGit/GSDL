@@ -53,3 +53,8 @@ void GRenderizador::renderizar()
 {
     SDL_RenderPresent(grender);
 }
+
+SDL_Texture *GRenderizador::crearTextura(int ancho, int alto)
+{
+    return SDL_CreateTexture(grender, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, ancho, alto);
+}

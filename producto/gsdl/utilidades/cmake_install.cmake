@@ -1,4 +1,4 @@
-# Install script for directory: /home/pacho/C++/SDL/GSDL/gsdl
+# Install script for directory: /home/pacho/C++/SDL/GSDL/gsdl/utilidades
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,13 +35,5 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/pacho/C++/SDL/GSDL/producto/gsdl/motor/cmake_install.cmake")
-  include("/home/pacho/C++/SDL/GSDL/producto/gsdl/elementos/cmake_install.cmake")
-  include("/home/pacho/C++/SDL/GSDL/producto/gsdl/utilidades/cmake_install.cmake")
-
 endif()
 

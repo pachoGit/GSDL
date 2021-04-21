@@ -3,59 +3,42 @@
 GTexto::GTexto() : GElemento()
 {
     texto = "Texto";
-    fuente = TTF_OpenFont(GConfig::nombre_fuente.c_str(), GConfig::tam_fuente);
-    if (!fuente)
-        std::cout << "No se ha podido cargar la fuente de texto: " << GConfig::nombre_fuente << std::endl;
+    nombre_fuente = GConfig::nombre_fuente;
     tam = GConfig::tam_fuente;
     /* Color por defecto - negro */
     color = GConfig::color_fuente;
+    estilo = GNORMAL;
+    ttf_fuente = nullptr;
 }
 
 GTexto::GTexto(std::string cad) : GElemento()
 {
     texto = cad;
-    fuente = TTF_OpenFont(GConfig::nombre_fuente.c_str(), GConfig::tam_fuente);
-    if (!fuente)
-        std::cout << "No se ha podido cargar la fuente de texto: " << GConfig::nombre_fuente << std::endl;
+    nombre_fuente = GConfig::nombre_fuente;
     tam = GConfig::tam_fuente;
     /* Color por defecto - negro */
     color = GConfig::color_fuente;
+    estilo = GNORMAL;
+    ttf_fuente = nullptr;
 }
 
 GTexto::GTexto(std::string cad, unsigned t) : GElemento()
 {
     texto = cad;
+    nombre_fuente = GConfig::nombre_fuente;
     tam = t;
-    fuente = TTF_OpenFont(GConfig::nombre_fuente.c_str(), tam);
-    if (!fuente)
-        std::cout << "No se ha podido cargar la fuente de texto: " << GConfig::nombre_fuente << std::endl;
     /* Color por defecto - negro */
     color = GConfig::color_fuente;
-}
-
-GTexto::GTexto(std::string cad, unsigned t, TTF_Font *f)
-{
-    texto = cad;
-    tam = t;
-    if (f != nullptr)
-        fuente = f;
-    else
-    {
-        fuente = TTF_OpenFont(GConfig::nombre_fuente.c_str(), tam);
-        if (!fuente)
-            std::cout << "No se ha podido cargar la fuente de texto: " << GConfig::nombre_fuente << std::endl;
-    }
-
-    /* Color por defecto - negro */
-    color = GConfig::color_fuente;
+    estilo = GNORMAL;
+    ttf_fuente = nullptr;
 }
 
 GTexto::~GTexto()
 {
-    if (fuente != nullptr)
+    if (ttf_fuente != nullptr)
     {
-        TTF_CloseFont(fuente);
-        fuente = nullptr;
+        TTF_CloseFont(ttf_fuente);
+        ttf_fuente = nullptr;
     }
 }
 
@@ -66,31 +49,29 @@ void GTexto::ingTexto(std::string cad)
     texto = cad;
 }
 
-void GTexto::ingFuente(std::string nf)
+void GTexto::ingNombreFuente(std::string nf)
 {
-    fuente = TTF_OpenFont(nf.c_str(), GConfig::tam_fuente);
-    if (!fuente)
-        std::cout << "No se ha podido cargar la fuente de texto: " << GConfig::nombre_fuente << std::endl;
+    nombre_fuente = nf;
 }
 
 void GTexto::ingTam(unsigned t)
 {
     tam = t;
-    fuente = TTF_OpenFont(GConfig::nombre_fuente.c_str(), tam);
-}
-
-void GTexto::ingEstilo(int e)
-{
-    if (fuente != nullptr)
-    {
-        TTF_SetFontStyle(fuente, e);
-    }
-    // Talvez mostrar un error que aun no se ha creado TTF_Font
 }
 
 void GTexto::ingColor(GColor c)
 {
     color = c;
+}
+
+void GTexto::ingEstilo(EstiloFuente e)
+{
+    estilo = e;
+}
+
+void GTexto::ingTTFFuente(TTF_Font *f)
+{
+    ttf_fuente = f;
 }
 
 /* RETORNOS */
@@ -100,14 +81,9 @@ std::string GTexto::retTexto() const
     return texto;
 }
 
-TTF_Font *GTexto::retFuente() const
+std::string GTexto::retNombreFuente() const
 {
-    return fuente;
-}
-
-EstiloFuente GTexto::retEstilo() const
-{
-    return estilo;
+    return nombre_fuente;
 }
 
 GColor GTexto::retColor() const
@@ -115,31 +91,60 @@ GColor GTexto::retColor() const
     return color;
 }
 
+EstiloFuente GTexto::retEstilo() const
+{
+    return estilo;
+}
+
+void GTexto::construir(GRenderizador *r)
+{
+    if (!ttf_fuente) // Si ya esta cargado, no cargar otra TTF_Font
+    {
+        ttf_fuente = TTF_OpenFont(nombre_fuente.c_str(), tam);
+        if (!ttf_fuente) // No se pudo cargar la fuente de texto
+        {
+            // TODO: Debemos implementar una mejor forma para el informe de errores
+            std::cout << "No se ha cargado la fuente: " << nombre_fuente << std::endl;
+            return;
+        }
+    }
+    SDL_Color c = {color.at(0), color.at(1), color.at(2), color.at(3)};
+    SDL_Surface *temp = TTF_RenderUTF8_Solid(ttf_fuente, texto.c_str(), c);
+    if (!temp)
+        return;
+    SDL_Texture *textura = SDL_CreateTextureFromSurface(r->retGrender(), temp);
+    if (!textura)
+        return;
+    ingTextura(textura);
+    SDL_FreeSurface(temp);
+    int ancho, alto;
+    SDL_QueryTexture(textura, nullptr, nullptr, &ancho, &alto);
+    ingArea(ancho, alto);
+}
+
 // No hay evento que hacer
 void GTexto::controlarEvento(SDL_Event *e)
 {
+    GEscuchadorMouse *em = retGEscuchadorMouse();
+    if (!em)
+        return;
+    // Para eventos del mouse verificamos si el mouse esta encima del elemento
+    int x, y;
+    SDL_GetMouseState(&x, &y);
+    if (!estaAqui(x, y))
+        return;
+    if (e->type == SDL_MOUSEBUTTONDOWN && e->button.button == SDL_BUTTON_LEFT)
+        em->clickIzquierdo(new GEventoMouse());
+    else if (e->type == SDL_MOUSEBUTTONDOWN && e->button.button == SDL_BUTTON_RIGHT)
+        em->clickDerecho(new GEventoMouse());
     
 }
 
 void GTexto::dibujar(GRenderizador *r)
 {
-    if (fuente == nullptr)
+    if (!retTextura())
         return;
-    SDL_Surface *superficie = nullptr;
-    SDL_Texture *tex = nullptr;
-    // Se necesita una mejor conversion aqui
-    SDL_Color c = {color.at(0), color.at(1), color.at(2), color.at(3)};
-    superficie = TTF_RenderText_Solid(fuente, texto.c_str(), c);
-    if (superficie == nullptr)
-        return;
-    tex = SDL_CreateTextureFromSurface(r->retGrender(), superficie);
-    ingTextura(tex);
-    SDL_FreeSurface(superficie);
     SDL_Rect e = retEspacio();
-    if (retTextura() == nullptr)
-        return;
-    SDL_QueryTexture(retTextura(), nullptr, nullptr, &e.w, &e.h);
-    ingEspacio(e);
     SDL_RenderCopy(r->retGrender(), retTextura(), nullptr, &e);
 }
 

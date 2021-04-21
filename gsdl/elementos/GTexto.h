@@ -29,17 +29,20 @@ class GTexto : public GElemento
     // Cadena de caracteres
     std::string texto;
 
-    // Un puntero al tipo de fuente
-    TTF_Font *fuente;
-
+    // Nombre de la fuente a usar para el texto
+    std::string nombre_fuente;
+    
     // Tamanio de fuente
-    int tam;
+    unsigned tam;
+
+    // Color de la fuente
+    GColor color;
     
     // Estilo de la fuente - Por defecto GNORMAL
     EstiloFuente estilo;
 
-    // Color de la fuente
-    GColor color;
+    //
+    TTF_Font *ttf_fuente;
 
   public:
 
@@ -55,31 +58,37 @@ class GTexto : public GElemento
     // Inicia un nuevo objeto con un texto y tamanio determinado
     GTexto(std::string cad, unsigned t);
 
-    // Inicia un nuevo objeto con un texto, tamanio y fuente determinado
-    GTexto(std::string cad, unsigned t, TTF_Font *f);
-
     ~GTexto();
     
     //Ingresos y Retornos 
     void ingTexto(std::string cad);
-    void ingFuente(std::string nf);
+
+    void ingNombreFuente(std::string nf);
+
     void ingTam(unsigned t);
-    void ingEstilo(int e);
+
     void ingColor(GColor c);
-    //void ingPosicion(int x, int y);
-            
+
+    void ingEstilo(EstiloFuente e);
+
+    void ingTTFFuente(TTF_Font *f);
+
     std::string retTexto() const;
-    TTF_Font *retFuente() const;
-    EstiloFuente retEstilo() const;
+    
+    std::string retNombreFuente() const;
+
     GColor retColor() const;
 
+    EstiloFuente retEstilo() const;
+
+    // SobreEscritos
+    
+    void construir(GRenderizador *r);
 
     void controlarEvento(SDL_Event *e);
     
     // Dibuja el texto para luego ser presentado
     void dibujar(GRenderizador *r);
-
-    //void dibujar(GVentana *v)
 };
 
 

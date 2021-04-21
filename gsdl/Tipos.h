@@ -4,6 +4,6 @@
 #include <array>
 
 // Guardar un color formato de color
-typedef std::array<unsigned, 4> GColor;
+typedef std::array<unsigned char, 4> GColor;
 
 #endif /* TIPOS_H */

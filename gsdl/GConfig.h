@@ -5,6 +5,7 @@
 
 #include <SDL2/SDL.h>
 #include <string>
+#include <vector>
 #include "Tipos.h"
 #include "utilidades/GCColor.h"
 
@@ -15,8 +16,6 @@ class GConfig
   public:
 
     /* TEXTURA POR DEFECTO  */
-
-    //static SDL_Texture *textura_defecto;
 
     // Espacio por defecto para una textura
     static SDL_Rect espacio_defecto;
@@ -49,6 +48,9 @@ class GConfig
 
     // Color por defecto del texto - Negro
     static GColor color_fuente;
+
+    // Lista de fuentes para usar
+    static vector<string> fuentes;
 
     /****** FIN DEL MANEJO DE TEXTO ******/
 
